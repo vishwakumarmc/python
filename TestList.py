@@ -1,5 +1,4 @@
-import itertools
-import numpy as np
+import logging
 
 
 def show():
@@ -13,17 +12,21 @@ show()
 
 cities = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix']
 
-print(cities)
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
+logger.debug("Original Cities: %s",cities)
+
 cities.append('Boston')
 
 del cities[2]
 print(cities)
 
-print(cities.count('New York'))
+
 print(cities.index('Houston'))
 
 cities.sort()
-print(*cities)
+logger.debug('Sorted Series : %s', cities)
 
 cities.reverse()
 print(*cities)
